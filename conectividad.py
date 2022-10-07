@@ -5,7 +5,7 @@ import socket
 def chequear_localhost():
     """Verifica si el localhost está correctamente configurado"""
     localhost = socket.gethostbyname("localhost")
-    #print("El localhost está en la dirección: {:s}".format(localhost))
+    #print("El localhost se encuentra en la dirección: {:s}".format(localhost))
     return localhost == "127.0.0.1"
 
 def chequear_conectividad():

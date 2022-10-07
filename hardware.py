@@ -6,7 +6,7 @@ def chequear_disco(disk):
     """Verificar que hay suficiente espacio libre en disco"""
     espacioEnDisco = shutil.disk_usage(disk)
     libre = espacioEnDisco.free/espacioEnDisco.used * 100
-#    print("Espacio en disco: {:f}".format(libre))
+    #print("Espacio en disco: {:f}".format(libre))
     return libre > 20
 
 def chequear_uso_cpu():

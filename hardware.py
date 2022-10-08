@@ -15,8 +15,12 @@ def chequear_uso_cpu():
     print("Uso del procesador: {:f} %".format(uso))
     return uso < 75
 
+def chequear_disco_raiz():
+    """Verificar si la partición root está llena"""
+    return chequear_disco("C:/")
+
 #Realización de las comprobaciones
-if not chequear_disco("C:/") or not chequear_uso_cpu():
+if not chequear_disco_raiz() or not chequear_uso_cpu():
     print("ERROR de Hardware!!!")
 else:
     print("Todo correcto!!!")

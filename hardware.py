@@ -34,10 +34,15 @@ def main():
         (chequear_reinicio, "Reinicio Pendiente!"),        
     ]
 
+    todo_ok = True
+    
     for chequeo, mensaje in chequeos:
         if chequeo():
             print(mensaje)
-            sys.exit(1)
+            todo_ok = False
+    
+    if not todo_ok:
+        sys.exit(1)
 
     print("Todo correcto!!!")
     sys.exit(0)

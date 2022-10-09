@@ -28,6 +28,7 @@ def chequear_uso_cpu():
 def main():
     """Realización de los chequeos"""
 
+    """"Lista de duplas con las funciones de chequeo y sus mensajes de error a mostrar en caso de fallo"""
     chequeos = [        
         (chequear_uso_cpu, "Uso Excesivo de la CPU!"),
         (chequear_disco_raiz, "Partición Raiz Llena!"),

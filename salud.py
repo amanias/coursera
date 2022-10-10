@@ -18,7 +18,7 @@ def chequear_disco_raiz_lleno():
     return chequear_disco_lleno("C:/")
 
 def chequear_no_red():
-    """Devuelve True si falla la conexión a Google y False en caso contrario."""
+    """Devuelve True si falla la conexión a Google; False en caso contrario."""
     try:
         socket.gethostbyname("www.google.com")
         return False

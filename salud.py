@@ -1,7 +1,9 @@
 #!C:\Users\micro\AppData\Local\Programs\Python\Python310\python.exe
+from ast import Try
 import os
 import psutil
 import shutil
+import socket
 import sys
 
 def chequear_disco_lleno(disk):
@@ -15,8 +17,16 @@ def chequear_disco_raiz_lleno():
     """Devuelve True si la partición root está llena; False en caso contrario."""
     return chequear_disco_lleno("C:/")
 
+def chequear_no_red():
+    """Devuelve True si falla la conexión a Google y False en caso contrario."""
+    try:
+        socket.gethostbyname("www.google.com")
+        return False
+    except:
+        return True
+
 def chequear_reinicio_necesario():
-    """Devuelve True si es necesario reiniciar el ordenador; False en caso contrario."""
+    """Devuelve verdad si es necesario reiniciar el ordenador."""
     return os.path.exists("/run/reboot-requiered")
 
 def chequear_uso_cpu_excesivo():
@@ -32,7 +42,8 @@ def main():
     chequeos = [        
         (chequear_uso_cpu_excesivo, "Uso Excesivo de la CPU!"),
         (chequear_disco_raiz_lleno, "Partición Raiz Llena!"),
-        (chequear_reinicio_necesario, "Reinicio Pendiente!"),        
+        (chequear_no_red, "No hay conexión a InterNet!"),
+        (chequear_reinicio_necesario, "Reinicio Pendiente!")    
     ]
 
     todo_ok = True
